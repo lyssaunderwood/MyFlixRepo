@@ -21,6 +21,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import cz.msebera.android.httpclient.Header;
 
 public class MoviesActivity extends AppCompatActivity {
@@ -30,12 +32,15 @@ public class MoviesActivity extends AppCompatActivity {
 
     ArrayList<Movie> movies;
     MovieArrayAdapter movieAdapter;
-    ListView lvItems;
+    //ListView lvItems;
+
+    @BindView(R.id.lvMovies) ListView lvItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movies);
+        ButterKnife.bind(this);
         getSupportActionBar().hide();
 
 //        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
@@ -50,7 +55,7 @@ public class MoviesActivity extends AppCompatActivity {
 //                android.R.color.holo_orange_light,
 //                android.R.color.holo_red_light);
 
-        lvItems = (ListView) findViewById(R.id.lvMovies);
+        //lvItems = (ListView) findViewById(R.id.lvMovies);
         movies = new ArrayList<>();
         movieAdapter = new MovieArrayAdapter(this, movies);
         lvItems.setAdapter(movieAdapter);

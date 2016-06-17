@@ -24,6 +24,7 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
         TextView tvTitle;
         TextView tvOverview;
         ImageView ivImage;
+
     }
 
     public MovieArrayAdapter(Context context, List<Movie> movies) {
