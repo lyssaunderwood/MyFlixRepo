@@ -3,17 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
+    android:background="#3d0000"
     tools:context="com.example.lyssaunderwood.flixster.activity_view_movie">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/ivImage"
+        tools:src="@mipmap/ic_launcher"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        tools:src="@mipmap/ic_launcher" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -21,20 +20,21 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         tools:text="X-Men: Apocalypse"
         android:id="@+id/tvTitle"
+        android:textColor="#ffffff"
         android:layout_below="@+id/ivImage"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textColor="#ffffff" />
+        android:layout_centerHorizontal="true" />
 
     <RatingBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/rbRate"
-        android:layout_below="@+id/tvTitle"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:numStars="5"
-        tools:rating="5" />
+        tools:rating="5"
+        android:isIndicator="true"
+        style="?android:attr/ratingBarStyleIndicator"
+        android:layout_below="@+id/tvTitle"
+        android:layout_alignRight="@+id/tvTitle"
+        android:layout_alignEnd="@+id/tvTitle" />
 
     <TextView
         android:layout_width="wrap_content"

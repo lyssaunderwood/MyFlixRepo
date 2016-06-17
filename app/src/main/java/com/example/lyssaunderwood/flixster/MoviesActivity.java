@@ -36,6 +36,7 @@ public class MoviesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movies);
+        getSupportActionBar().hide();
 
 //        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
 //        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
