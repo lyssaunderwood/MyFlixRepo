@@ -1,8 +1,12 @@
 package com.example.lyssaunderwood.flixster;
 
+import android.content.Intent;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.lyssaunderwood.flixster.adapters.MovieArrayAdapter;
@@ -21,6 +25,9 @@ import cz.msebera.android.httpclient.Header;
 
 public class MoviesActivity extends AppCompatActivity {
 
+    //private final int REQUEST_CODE = 20;
+   // private SwipeRefreshLayout swipeContainer;
+
     ArrayList<Movie> movies;
     MovieArrayAdapter movieAdapter;
     ListView lvItems;
@@ -29,6 +36,18 @@ public class MoviesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movies);
+
+//        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
+//        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+//            @Override
+//            public void onRefresh() {
+//
+//            }
+//         });
+//        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
+//                android.R.color.holo_green_light,
+//                android.R.color.holo_orange_light,
+//                android.R.color.holo_red_light);
 
         lvItems = (ListView) findViewById(R.id.lvMovies);
         movies = new ArrayList<>();
@@ -71,6 +90,20 @@ public class MoviesActivity extends AppCompatActivity {
         // 4. Associate the adapter with the ListView
         //if (lvMovies != null) {
         //    lvMovies.setAdapter(adapter);
+        lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Movie movie = movies.get(position);
+                Intent details = new Intent(MoviesActivity.this, activity_view_movie.class);
+                details.putExtra("image", movie.getBackdropPath());
+                details.putExtra("title", movie.getOriginalTitle());
+                details.putExtra("overview", movie.getOverview());
+                details.putExtra("rating", movie.getRating());
+                startActivity(details);
+            }
+        });
+
         }
+
     }
 //}
