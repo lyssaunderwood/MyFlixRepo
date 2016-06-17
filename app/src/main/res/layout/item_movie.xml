@@ -32,6 +32,9 @@
         android:layout_below="@+id/tvTitle"
         android:layout_toRightOf="@+id/ivMovieImage"
         android:layout_toEndOf="@+id/ivMovieImage"
-        android:textColor="#ffffff" />
+        android:textColor="#ffffff"
+        android:maxLines="10"
+        android:ellipsize="end"
+        android:singleLine="false"/>
 
 </RelativeLayout>
